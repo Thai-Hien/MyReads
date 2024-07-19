@@ -5,8 +5,10 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <MyreadApp />
-  </BrowserRouter>,
+  <React.StrictMode>
+    <BrowserRouter>
+      <MyreadApp />
+    </BrowserRouter>
+  </React.StrictMode>,
   document.getElementById("root")
 );

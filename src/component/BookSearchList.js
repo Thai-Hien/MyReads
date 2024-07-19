@@ -9,18 +9,19 @@ function BookSearchList(props) {
   const [books, setBooks] = useState(props.books);
 
   const handleSearch = (keyword) => {
-    if (keyword !== "") {
+    if (keyword === "") {
+      setBooks([]);
+      setSearchInput("");
+    } else {
       BooksAPI.search(keyword).then((books) => {
         if (books.hasOwnProperty("error")) {
           setSearchInput("");
+          setBooks([]);
         } else {
           setBooks(books);
           setSearchInput(keyword);
         }
       });
-    } else {
-      setBooks(props.books);
-      setSearchInput("");
     }
   };
 
@@ -30,10 +31,7 @@ function BookSearchList(props) {
     }
   }, [props.books, searchInput]);
 
-  const {
-    changeStatusBook,
-    listBookDefault,
-  } = props;
+  const { changeStatusBook, listBookDefault } = props;
 
   return (
     <div className="search-books">
@@ -52,7 +50,6 @@ function BookSearchList(props) {
         </div>
       </div>
       <div className="search-books-results">
-
         <ol className="books-grid">
           {books.map((book) => (
             <li key={book.title}>

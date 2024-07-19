@@ -17,9 +17,9 @@ function BookShelfOption(props) {
                 <ol className="books-grid">
                   {books.map(
                     book =>
-                      book.shelf.toLowerCase() ===
+                      book.shelf ===
                       shelf
-                        .toLowerCase().trim().split(" ").join("") && (
+                      && (
                         <li key={book.title}>
                           <BookItem book={book} changeStatusBook={changeStatusBook} shelf={shelf} />
                         </li>

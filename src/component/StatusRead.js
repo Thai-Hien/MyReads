@@ -4,20 +4,19 @@ function StatusRead({ changeStatusBook, book, shelf }) {
     return (
         <select
             onChange={event => {
-                changeStatusBook(event.target.value, book);
+                changeStatusBook(book, event.target.value);
             }}
             value={
                 shelf !== "none"
                     ? shelf
-                        .toLowerCase().trim().split(" ").join("")
                     : "none"
             }
         >
             <option value="move" disabled>
                 Move to...
             </option>
-            <option value="currentlyreading">Currently Reading</option>
-            <option value="wanttoread">Want to Read</option>
+            <option value="currentlyReading">Currently Reading</option>
+            <option value="wantToRead">Want to Read</option>
             <option value="read">Read</option>
             <option value="none">None</option>
         </select>
