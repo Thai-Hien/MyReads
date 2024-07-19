@@ -13,7 +13,6 @@ const MyreadApp = () => {
 
   const listBooksDefault = useCallback((books) => {
     let newMap = new Map();
-    console.log(books);
     books.forEach((book) => {
       newMap.set(book.id, book.shelf);
     });
@@ -30,8 +29,6 @@ const MyreadApp = () => {
   }, [books.length, listBooksDefault]);
 
   const changeStatusBook = useCallback((bookToAdd, shelfName) => {
-    console.log(shelfName);
-    console.log(bookToAdd);
     BooksAPI.update(bookToAdd, shelfName).then(() => {
       bookToAdd.shelf = shelfName;
       let bookAdded = false;

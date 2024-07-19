@@ -6,7 +6,7 @@ import { DebounceInput } from "react-debounce-input";
 
 function BookSearchList(props) {
   const [searchInput, setSearchInput] = useState("");
-  const [books, setBooks] = useState(props.books);
+  const [books, setBooks] = useState([]);
 
   const handleSearch = (keyword) => {
     if (keyword === "") {
